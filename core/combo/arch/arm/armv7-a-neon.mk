@@ -61,3 +61,9 @@ local_arch_has_lpae :=
 
 arch_variant_cflags += \
     -mfloat-abi=softfp
+
+ifneq (,$(filter cortex-a7 cortex-a15 krait denver,$(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
+	arch_variant_cflags += -mfpu=neon-vfpv4
+else
+	arch_variant_cflags += -mfpu=neon
+endif
