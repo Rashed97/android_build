@@ -20,7 +20,7 @@
 
 my_local_odex_comp :=
 
-ifneq (false,$(WITH_DEXPREOPT_COMP))
+ifeq (true,$(WITH_DEXPREOPT_COMP))
 ifneq ($(filter %.apk,$(LOCAL_INSTALLED_MODULE)),)
 my_local_odex_comp := true
 endif
